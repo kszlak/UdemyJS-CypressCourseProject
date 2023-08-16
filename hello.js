@@ -21,10 +21,11 @@ more and more
  */
 let sumaab = a+b
 console.log(sumaab)
-//we cannot redeclare with let variable but we can do with var
-//reassigning works with let
+//redeclaring works only with var
+//reassigning works with let and var
 c = a=b //reassigning, let c =a=b redeclaring
 
-const x=a+b // can't be reassign e.g. x=a-b
+const x=a+b
+//reassigning is not working with const as it is constant
 
 

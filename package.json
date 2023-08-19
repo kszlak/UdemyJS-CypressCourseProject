@@ -1,6 +1,7 @@
 {
   "name": "Udemy Course",
   "version": "1.0.0",
-  "dependencies": {
+  "devDependencies": {
+    "cypress": "^12.17.4"
   }
 }

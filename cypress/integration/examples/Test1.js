@@ -15,11 +15,3 @@ describe('My First e2e Test Suite', function()
         cy.get('.product:visible').should('have.length',4) //visible added to get only visible items
     })
 })
-
-/*
-Cypress folder structure:
-- fixtures store test data, e.g. to store mocked data for responses
-- plugins used to handle cypress events
-- support is for writing customised commands
-- cypress.config.js is a configuration file for cypress e.g. to define folder for screenshots etc
- */

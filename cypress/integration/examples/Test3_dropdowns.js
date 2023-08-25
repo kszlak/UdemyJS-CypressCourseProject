@@ -1,6 +1,6 @@
-describe('My Third e2e Test Suite', function()
+describe('Handling dropdowns', function()
 {
-    it('My Third Test Case', function()
+    it('Validate text in the dropdowns', function()
     {
         //checkboxes
         cy.visit('https://rahulshettyacademy.com/AutomationPractice/')

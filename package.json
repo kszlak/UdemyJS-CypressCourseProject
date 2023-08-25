@@ -2,6 +2,7 @@
   "name": "Udemy Course",
   "version": "1.0.0",
   "devDependencies": {
-    "cypress": "^12.17.4"
+    "cypress": "^12.17.4",
+    "cypress-iframe": "^1.0.1"
   }
 }

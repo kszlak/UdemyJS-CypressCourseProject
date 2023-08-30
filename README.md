@@ -10,3 +10,6 @@ Based on the course **Cypress -Modern Automation Testing from Scratch + Framewor
     3. open Cypress with command `cypress open`
 
 
+### Supporting tests with iframes (Test8)
+    1. make sure that cypress-iframe plugin with custom commands simplifying working with elements inside an iframe is installed, 
+    if not - run `npm install -D cypress-iframe'

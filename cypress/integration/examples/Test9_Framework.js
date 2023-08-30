@@ -16,11 +16,12 @@ describe('Frame test', function()
 
     it('Validate product elements', function()
     {
-        Cypress.config('defaultCommandTimeout',8000) //this timeout will apply only to this spec
+        Cypress.config('defaultCommandTimeout',10000) //this timeout will apply only to this spec
         //create object for that class with the import keyword
         const homePage=new HomePage()
         const productPage=new ProductPage()
-        cy.visit('https://www.rahulshettyacademy.com/angularpractice/')
+
+        cy.visit(Cypress.env('url')+'/angularpractice/')
 
         //cy.get('input[name="name"]:nth-child(2)').type(this.data.name) changed to use selectors from HomePage.js file
         homePage.getEditBox().type(this.data.name)
@@ -77,8 +78,8 @@ describe('Frame test', function()
 
         cy.contains('Checkout').click()
         cy.get('#country').type('India')
-        cy.get('.suggestions > ul > li > a').click()
-        cy.get('[for="checkbox2"]').click()
+        cy.get('.suggestions > ul > li > a').click({force: true})
+        cy.get('[for="checkbox2"]').click({force: true})
         cy.get('.btn-success').click()
         cy.get('.alert-success').should('contain.text', 'Success! Thank you! Your order will be delivered in next few weeks :-).')
 

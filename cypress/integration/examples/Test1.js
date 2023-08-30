@@ -1,8 +1,3 @@
-//cypress - spec file
-//cypress run
-//to run one spec test run in headless execution in electron browser: cypress run --spec "cypress/integration/examples/Test1.js"
-//to run in head mode (see execution in the browser) and with chosen browser: cypress run --headed --browser chrome
-
 /// <reference types="cypress" />
 describe('My First e2e Test Suite', function()
 {

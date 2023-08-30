@@ -16,6 +16,7 @@ describe('Frame test', function()
 
     it('Validate product elements', function()
     {
+        Cypress.config('defaultCommandTimeout',8000) //this timeout will apply only to this spec
         //create object for that class with the import keyword
         const homePage=new HomePage()
         const productPage=new ProductPage()
@@ -54,6 +55,32 @@ describe('Frame test', function()
         })
 
         productPage.getCheckoutButton().click()
+        var sum = 0
+        cy.get('tr td:nth-child(4) strong').each((el, index, list)=>
+        {
+            const actualText = el.text()
+            var result = actualText.split(' ')
+            result = result[1].trim() //trim() removes spaces
+            sum = Number(sum)+Number(result)
+        }).then(function () //as we have js we need to resolve the promise manually, otherwise cypress will behave asynchronously
+        {
+            cy.log(sum)
+
+        })
+        cy.get('h3 strong').then(function (element)
+        {
+            const amount = element.text()
+            var finalAmount = amount.split(' ')
+            var actualAmount = finalAmount[1].trim()
+            expect(Number(actualAmount)).to.equal(Number(sum)) //conversion from string to number with Number()
+        })
+
+        cy.contains('Checkout').click()
+        cy.get('#country').type('India')
+        cy.get('.suggestions > ul > li > a').click()
+        cy.get('[for="checkbox2"]').click()
+        cy.get('.btn-success').click()
+        cy.get('.alert-success').should('contain.text', 'Success! Thank you! Your order will be delivered in next few weeks :-).')
 
     })
 })

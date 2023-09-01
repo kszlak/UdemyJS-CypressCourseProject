@@ -4,5 +4,9 @@
   "devDependencies": {
     "cypress": "^12.17.4",
     "cypress-iframe": "^1.0.1"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   }
 }

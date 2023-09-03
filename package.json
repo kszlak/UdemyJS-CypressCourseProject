@@ -7,6 +7,9 @@
   },
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "cy:head": "npm run cy:run -- --headed",
+    "cy:chrome": "npm run cy:run -- --browser chrome",
+    "cy:rec": "npm run cy:run -- --record --key 889511d5-c673-4cd2-97c1-071f20bdd951"
   }
 }

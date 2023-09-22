@@ -46,7 +46,6 @@ describe('Frame test', function()
 
         //cy.get(':nth-child(2) > .nav-link').click()
         homePage.getShopTab().click()
-
         //call the function from commands.js with productName parameter
         //we don't need to import any file as it is in default file commands.js in support folder
         //data come from example.json

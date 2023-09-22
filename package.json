@@ -11,5 +11,9 @@
     "cy:head": "npm run cy:run -- --headed",
     "cy:chrome": "npm run cy:run -- --browser chrome",
     "cy:rec": "npm run cy:run -- --record --key 889511d5-c673-4cd2-97c1-071f20bdd951"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.5",
+    "@cypress/browserify-preprocessor": "latest"
   }
 }

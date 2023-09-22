@@ -20,7 +20,7 @@
 
 
 ## Asynchronous concept
-It is very important to understand that Cypress commands don't do anything at the moment they are invoked, but rather enqueue themselves to be run later. 
+Cypress commands don't do anything at the moment they are invoked, but rather enqueue themselves to be run later. 
 This is what we mean when we say Cypress commands are asynchronous.
 Cypress relies on timeouts to know when to stop waiting on an app to get into the expected state. 
 Timeouts can be configured globally, or on a per-command basis.
@@ -37,3 +37,4 @@ npx - searching for node.js file in the whole project to run tests
 --env - to run environmental variable
 --headed - to run in head mode (see execution in the browser) 
 --browser chrome - to run in a chosen browser
+--env tags="@Smoke" - to run with a tag e.g. @Smoke

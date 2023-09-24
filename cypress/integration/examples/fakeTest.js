@@ -14,6 +14,7 @@ describe('Mocked Test Suite', function()
             },
             {
             statusCode: 200,
+                //mocked response
             body: [{
                     "book_name": "RestAssured with Java",
                     "isbn": "BSG",
@@ -21,8 +22,16 @@ describe('Mocked Test Suite', function()
 
             }).as('bookretrievals')
         cy.get("button[class='btn btn-primary']").click()
-        cy.wait('@bookretrievals') //this promise will be resolved after cypress successfully sent the mocked data back to the browser
+        //this promise will be resolved after cypress successfully sent the mocked data back to the browser
+        cy.wait('@bookretrievals').then(({request, response})=>
+            {
+                //length of the response array should match rows of the table
+                cy.get('tr').should('have.length', response.body.length+1)
+            }
+        )
         cy.get('p').should('have.text', 'Oops only 1 Book available')
+
+
     })
 })
 

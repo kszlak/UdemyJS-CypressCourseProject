@@ -1,3 +1,4 @@
+/// <reference types='Cypress' />
 import { Given, When, Then } from  "@badeball/cypress-cucumber-preprocessor";
 import HomePage from "../../pageObjects/HomePage";
 import ProductPage from "../../pageObjects/ProductPage";
@@ -13,12 +14,11 @@ let sum
 
     })
 
-    When('I add items to cart',()=>
+    When('I add items to cart', function() //we can't use ()=> when using hooks
     {
 
         homePage.getShopTab().click()
-        data = ["Blackberry", "iphone X"]
-        data.forEach(function(element)
+        this.data.productName.forEach(function(element)
         {
             cy.selectProduct(element)
         })

@@ -4,6 +4,9 @@ describe('Mocked Test Suite', function()
     it('My first Mocked Test Case', function()
     {
         cy.visit('https://rahulshettyacademy.com/angularAppdemo/')
+        //the real response can be different each time so
+        //the response is mocked to have always 1 item
+        //then we can validate the text for only one record
         cy.intercept(
             {
             method: 'GET',

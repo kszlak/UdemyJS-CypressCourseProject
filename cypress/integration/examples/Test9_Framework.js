@@ -5,7 +5,8 @@ describe('Frame test', function()
 {
     //runs once before all tests in the block
     before(function (){
-
+        //data = ["Blackberry", "iphone X"]
+        //data.forEach(function(element)
         //to call the file from fixture folder
         cy.fixture('example').then(function(data)
         {

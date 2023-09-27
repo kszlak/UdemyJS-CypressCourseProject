@@ -22,7 +22,7 @@
 
     Cypress.Commands.add('LoginAPI', ()=> {
         cy.request('POST', 'https://rahulshettyacademy.com/api/ecom/auth/login',
-            {"userEmail":"xcalibertesting@gmail.com","userPassword":"Test123!"}).
+            {"userEmail":"email@gmail.com","userPassword":"Passwd"}).
             then(function(response)
             {
                 expect(response.status).to.eq(200)

@@ -19,7 +19,8 @@ module.exports = defineConfig({
   },
   e2e: {
     setupNodeEvents,
-    specPattern:'cypress/integration/examples/BDD/*.feature' //changed to pick up only feature files instead of js ones
+    specPattern:'cypress/integration/examples/*' //changed to pick up only feature files instead of js ones
+    //specPattern:'cypress/integration/examples/BDD/*.feature'
   },
   projectId: "vmp44e",
   retries: {

@@ -20,6 +20,16 @@
     })
 })
 
+    Cypress.Commands.add('LoginAPI', ()=> {
+        cy.request('POST', 'https://rahulshettyacademy.com/api/ecom/auth/login',
+            {"userEmail":"xcalibertesting@gmail.com","userPassword":"Test123!"}).
+            then(function(response)
+            {
+                expect(response.status).to.eq(200)
+                Cypress.env('token', response.body.token) //token is set in token variable and available in the entire framework
+            })
+    })
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

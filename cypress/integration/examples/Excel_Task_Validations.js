@@ -1,6 +1,5 @@
 /// <reference types="cypress" />
 //const naetCSV require ('neat-csv')
-import neatCSV from 'neat-csv'
 let productName
 
 describe('JWT session and download csv file', function()
@@ -42,6 +41,10 @@ describe('JWT session and download csv file', function()
         {
             cy.log(result.data[1].A)
             expect(productName).to.equal(result.data[1].B)
+        })
+        cy.readFile(filePath).then(function(text)
+        {
+            expect(text).to.include(productName) //check if text is present in the file
         })
     })
 })

@@ -1,8 +1,6 @@
 /// <reference types="cypress" />
 //const naetCSV require ('neat-csv')
 import neatCSV from 'neat-csv'
-const excelToJson = require('convert-excel-to-json')
-const fs = require('fs')
 let productName
 
 describe('JWT session and download csv file', function()
@@ -25,7 +23,7 @@ describe('JWT session and download csv file', function()
             productName = element.text()
         })
         cy.get('.card-body button:last-of-type').eq(1).click()
-        cy.get('[routerlink="/dashboard/cart"]').click()
+        cy.get('[routerlink*="cart"]').click()
         cy.contains('Checkout').click()
         cy.get('[placeholder*="Country"]').type('ind')
         cy.get('.ta-results button').each((el, index, list)=>
@@ -38,10 +36,12 @@ describe('JWT session and download csv file', function()
         cy.get('.btnn').click()
         cy.wait(2000)
         cy.contains('Excel').click()
-        const filePath = Cypress.config("fileServerFolder")+"/cypress/downloads/order-invoice_xcalibertesting.xlsx"
-        const result = excelToJson({
-            source: fs.readFileSync(filePath) // fs.readFileSync return a Buffer
-        });
-        console.log(result)
+        const filePath = Cypress.config("fileServerFolder")+"/cypress/downloads/order-invoice_xcalibertesting.xlsx";
+        //we need to add task because browser engine isn't handle db or excel connections and it has to be handle by node
+        cy.task('excelToJsonConverter', filePath).then(function(result) //two arguments: task and argument you're passing
+        {
+            cy.log(result.data[1].A)
+            expect(productName).to.equal(result.data[1].B)
+        })
     })
 })
